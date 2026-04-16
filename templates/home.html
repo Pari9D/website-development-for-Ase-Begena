@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ase Begena Workshop</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            background: #f4efe6;
+            color: #2c2c2c;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background: #3b2a1f;
+            color: white;
+            font-family: 'Cinzel', serif;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card h2 {
+            font-family: 'Cinzel', serif;
+            color: #5b3b24;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #8b4513;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Ase Begena Workshop</h1>
+        <p>Handcrafted Ethiopian Harps</p>
+    </header>
+
+    <div class="gallery">
+
+        {% for bagan in bagans %}
+        <div class="card">
+            <h2>{{ bagan.name }}</h2>
+            <p><b>Size:</b> {{ bagan.size }}</p>
+            <p><b>Wood:</b> {{ bagan.wood_type }}</p>
+            <p>{{ bagan.description }}</p>
+            <p class="price">Price: {{ bagan.price }} ETB</p>
+            <p>Production Time: {{ bagan.production_days }} days</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>
