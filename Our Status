@@ -1,0 +1,51 @@
+Parahem's full track
+
+1. Django Project Setup
+Created Django project (ase_begena)
+Created app (workshop)
+Server running successfully
+
+2. Database + Model
+Built Bagan model:
+name
+size
+wood_type
+description
+price
+production_days
+image (added later)
+Migrations created and applied successfully
+SQLite database working
+
+3. Admin Panel
+Superuser created
+Admin login working
+You can:
+Add Begenas
+Edit Begenas
+Upload images
+ 4. API (Core Achievement)
+
+You built 2 working endpoints:
+
+List API
+GET /api/bagans/
+
+Detail API
+GET /api/bagans/<id>/
+
+Returns real JSON data
+
+5. Image System (NEW MAJOR UPGRADE)
+Installed Pillow
+Added ImageField to model
+Ran migrations successfully
+Admin now supports image upload
+6. Current Status of Images API
+
+Right now:
+
+Images exist in DB
+Upload works
+BUT API still needs final upgrade:
+ convert image path → full URL
