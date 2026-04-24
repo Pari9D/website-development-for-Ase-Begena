@@ -9,9 +9,18 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Bagan
 from .serializers import BaganSerializer
+from django.shortcuts import get_object_or_404
+
 
 @api_view(['GET'])
 def bagan_list_api(request):
     bagans = Bagan.objects.all()
-    serializer = BaganSerializer(bagans, many=True)
+    serializer = BaganSerializer(bagans, many=True, context={'request': request})
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def bagan_detail_api(request, id):
+    bagan = get_object_or_404(Bagan, id=id)
+    serializer = BaganSerializer(bagan, context={'request': request})
     return Response(serializer.data)

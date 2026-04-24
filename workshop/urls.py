@@ -1,9 +1,7 @@
-from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('api/bagans/', views.bagan_list_api, name='bagan_list_api'),
+    path('api/bagans/', views.bagan_list_api),
+    path('api/bagans/<int:id>/', views.bagan_detail_api),
 ]
